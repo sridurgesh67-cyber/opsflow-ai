@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE = import.meta.env.VITE_API_URL || 'https://opsflow-ai-cf2q.onrender.com/api';
+const API_BASE = 'https://opsflow-ai-cf2q.onrender.com/api';
 
 const api = axios.create({
   baseURL: API_BASE,
@@ -9,7 +9,6 @@ const api = axios.create({
   }
 });
 
-// Attach JWT token to requests if present
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('opsflow_token');
   if (token) {
